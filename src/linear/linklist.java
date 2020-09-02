@@ -72,5 +72,25 @@ public class linklist<T> implements Iterable<T>{
             return n.item;
         }
     }
+    //单链表反转
+    public void reverse(){
+        if(N==0){
+            return;
+        }
+        reverse(head.next);
+    }
+    //反转指定节点
+    public Node reverse(Node curr){
+        if (curr.next==null){
+            head.next=curr;
+            return curr;
+        }
+        //curr的后一个节点，反转后变为pre
+        Node pre = reverse(curr.next);
+        //pre指向cur
+        pre.next= curr;
+        curr.next=null;
+        return curr;
+    }
 
 }

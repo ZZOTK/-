@@ -14,5 +14,11 @@ public class linklisttest {
 
         String re=s1.remove(0);
         System.out.println(re);
+
+        System.out.println("-------------------------------------");
+        s1.reverse();
+        for(String s:s1){
+            System.out.println(s);
+        }
     }
 }
