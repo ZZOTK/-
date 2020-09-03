@@ -22,6 +22,9 @@ public class linklist_youhuan {
         boolean circle = isCircle(first);
         System.out.println("first链表中是否有环："+circle);
 
+        Node<String> entrance =getEntrance(first);
+        System.out.println("环的入口为"+entrance.item);
+
     }
 
     public static boolean isCircle(Node<String> first) {
@@ -35,6 +38,24 @@ public class linklist_youhuan {
             }
         }
         return false;
+    }
+
+    public static Node getEntrance(Node<String> first){
+        Node fast=first;
+        Node slow=first;
+        Node temp=first;
+        while (fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if (slow==fast){
+                while (slow!=temp){
+                    slow=slow.next;
+                    temp=temp.next;
+                }
+                return temp;
+            }
+    }
+        return null;
     }
 
     private static class Node<T> {
