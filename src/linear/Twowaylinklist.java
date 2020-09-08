@@ -61,10 +61,10 @@ public class Twowaylinklist<T> implements Iterable<T> {
     }
     public void insert(int i,T t){
          Node pre=head;
-         for(int index=0;index<i-1;index++){
+         for(int index=0;index<i;index++){
              pre=pre.next;
          }
-         Node las=pre.next;
+         Node las=pre;
          Node newnode=new Node(t,pre,las);
          pre.next=newnode;
          las.pre=newnode;
